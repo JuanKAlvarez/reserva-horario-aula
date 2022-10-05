@@ -1,4 +1,5 @@
 <?php
-require_once 'libs/App.php';
-$app = new App(); 
+    $viewsPhat = "views/"; 
+    $viewsDistPhat = "views/dist/"; 
+    require_once $viewsPhat . "dashboard/main.php";
 ?>
