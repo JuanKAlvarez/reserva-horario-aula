@@ -35,7 +35,7 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
-                                <form class="form-horizontal ">
+                                <form class="form-horizontal " id="Formulario">
                                 <div class="row">
                                     <div class="col-md-12">
                                          <br>
