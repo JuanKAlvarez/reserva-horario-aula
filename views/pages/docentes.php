@@ -4,19 +4,19 @@
    
             <!-- Content Header (Page header) -->
             <div class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0"><?php  echo $page; ?></h1>
-                </div><!-- /.col -->
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active"><?php  echo $page; ?> </li>
-                    </ol>
-                </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0"><?php  echo $page; ?></h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active"><?php  echo $page; ?> </li>
+                        </ol>
+                    </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
             </div>
             <!-- /.content-header -->
 
@@ -29,62 +29,81 @@
                         </div>
                         <div class="col-lg-8 col-10">
                             <!-- general form elements -->
-                            <div class="card card-primary">
-                                <div class="card-header">
-                                <h3 class="card-title">Captura de <?php  echo $page; ?></h3>
+                            <div class="card card-primary ">
+                                <div class="card-header " >
+                                    <h3 class="card-title">Captura de <?php  echo $page; ?></h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
-                                <form class="form-horizontal">
-                                <fieldset>
+                                <form class="form-horizontal ">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                         <br>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <!-- Text input nombre-->
+                                        <div class="form-group">
+                                            <label class="control-label col-md-10" for="nombre">Nombres</label>  
+                                            <div class="col-md-10">
+                                                <input id="nombre" name="nombre" type="text" placeholder="Nombres" class="form-control input-md" required="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <!-- Text input-->
+                                        <div class="form-group">
+                                            <label class="control-label col-md-5" for="apellido">Apellidos</label>  
+                                            <div class="col-md-10">
+                                                <input id="apellido" name="apellido" type="text" placeholder="Apellidos" class="form-control input-md" required="">  
+                                            </div>
+                                        </div>   
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                            <!-- Text input-->
+                                        <div class="form-group">
+                                            <label class="col-md-10 control-label" for="correo">Correo</label>  
+                                            <div class="col-md-10">
+                                                <input id="correo" name="correo" type="text" placeholder="Correo" class="form-control input-md" required="" type="email">
+                                            </div>
+                                        </div>
+                                        </div>
+                                    <div class="col-md-6">
+                                        <!-- Text input-->
+                                        <div class="form-group">
+                                            <label class="col-md-10 control-label" for="telefono">Teléfono</label>  
+                                            <div class="col-md-10">
+                                                <input id="telefono" name="telefono" type="text" placeholder="Teléfono" class="form-control input-md" required="">
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                                <div class="row">
+                                <div class="col-md-6">
+                                        <!-- Button (Double) -->
+                                        <div class="form-group">
+                                            <label class="col-md-10 control-label" for="guardar"></label>
+                                            <div class="col-md-8">
+                                                <button id="guardar" name="guardar" class="btn btn-primary">Guardar</button>
+                                                <button id="limpiar" name="limpiar" class="btn btn-info" type="reset">Limpiar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                           
+                                    </div>
+                                </div>
 
-                                <!-- Form Name -->
-                                <legend><?php  echo $page; ?></legend>
+                                
 
-                                <!-- Text input-->
-                                <div class="form-group">
-                                <label class="col-md-4 control-label" for="nombre">Nombre</label>  
-                                <div class="col-md-4">
-                                <input id="nombre" name="nombre" type="text" placeholder="Nombre" class="form-control input-md" required="">
-                                <span class="help-block">nombre</span>  
-                                </div>
-                                </div>
+                                
 
-                                <!-- Text input-->
-                                <div class="form-group">
-                                <label class="col-md-4 control-label" for="apellido">Apellido</label>  
-                                <div class="col-md-4">
-                                <input id="apellido" name="apellido" type="text" placeholder="Apellido" class="form-control input-md" required="">
-                                <span class="help-block">apellido</span>  
-                                </div>
-                                </div>
+                                
 
-                                <!-- Text input-->
-                                <div class="form-group">
-                                <label class="col-md-4 control-label" for="correo">Correo</label>  
-                                <div class="col-md-4">
-                                <input id="correo" name="correo" type="text" placeholder="Correo" class="form-control input-md" required="">
-                                <span class="help-block">correo</span>  
-                                </div>
-                                </div>
-
-                                <!-- Text input-->
-                                <div class="form-group">
-                                <label class="col-md-4 control-label" for="telefono">Teléfono</label>  
-                                <div class="col-md-4">
-                                <input id="telefono" name="telefono" type="text" placeholder="Teléfono" class="form-control input-md" required="">
-                                <span class="help-block">Teléfono</span>  
-                                </div>
-                                </div>
-
-                                <!-- Button (Double) -->
-                                <div class="form-group">
-                                <label class="col-md-4 control-label" for="guardar"></label>
-                                <div class="col-md-8">
-                                    <button id="guardar" name="guardar" class="btn btn-primary">Guardar</button>
-                                    <button id="limpiar" name="limpiar" class="btn btn-info">Limpiar</button>
-                                </div>
-                                </div>
+                                
 
                                 </fieldset>
                                 </form>
