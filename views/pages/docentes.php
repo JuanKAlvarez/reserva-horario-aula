@@ -87,7 +87,7 @@
                                         <div class="form-group">
                                             <label class="col-md-10 control-label" for="guardar"></label>
                                             <div class="col-md-8">
-                                                <button id="guardar" name="guardar" class="btn btn-primary">Guardar</button>
+                                                <button id="guardar" type="button"  OnClick="saveForm('docentes')"  name="guardar" class="btn btn-primary">Guardar</button>
                                                 <button id="limpiar" name="limpiar" class="btn btn-info" type="reset">Limpiar</button>
                                             </div>
                                         </div>
