@@ -11,12 +11,8 @@ class docentesController{
 
     public function guardarDocente(docentesController $objdocente){
         $objClsDocente = new docentesModel();
-        // validan los datos
-        if (condition) {
-            # code...
-        } else {
-            # code...
-        }
+        
+       
         
 
 

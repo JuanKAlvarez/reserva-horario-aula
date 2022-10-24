@@ -8,9 +8,9 @@ class docentesModel{
     private $telefono;
     private $correo;
     
-    protected function guartdarDocente(obj $docente){
-        $con = new PDODB();
-        $con->connect();
+    protected function guartdarDocente(docentesController $docente){
+
+
         
 
 
