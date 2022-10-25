@@ -1,21 +1,16 @@
 <?php
 require_once "../models/docentesModel.php";
 
-class docentesController{
+class docentesController extends docentesModel {
     public $nombre;
     public $apellido;
     public $telefono;
     public $correo;
 
-    public $method;
+    public function guardarDocente(docentesController $objDocente){
 
-    public function guardarDocente(docentesController $objdocente){
-        $objClsDocente = new docentesModel();
-        
-       
-        
-
-
+        return docentesModel::guardarDocente($objDocente);
+ 
     }
 
 }

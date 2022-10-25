@@ -12,8 +12,14 @@ switch ($method){
         $objDocente->apellido = $dataForm["apellido"];
         $objDocente->telefono = $dataForm["telefono"];
         $objDocente->correo   = $dataForm["correo"];
-        $objDocente->guardarDocente($objDocente);
-
+        $res = $objDocente->guardarDocente($objDocente);
+        //se puede devolber un Json para entregar notificaciones
+        if ($res) {
+            echo "Guardado Correctamente";
+        } else {
+            echo "No se Guardo Correctamente";
+        }
+        // nos quedamos en el  minuto 21:39 del video
         break;
     default:
         #code
