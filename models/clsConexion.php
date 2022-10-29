@@ -16,7 +16,7 @@ class PDODB
         $this->host = "localhost";
         $this->usuario = "root";
         $this->pass = "";
-        $this->db = "ccontroldb";
+        $this->db = "db_reserva_aulas";
     }
  
     protected function connect() // Este método lo que hace es definir a la variable $opciones algunas 
