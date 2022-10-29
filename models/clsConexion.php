@@ -8,7 +8,7 @@ class PDODB
     private $db; // Atributo Nombre de Base de datos
     private $sql;
  
-    private $connection; // Atributo Conexión, aquí se guardá la conexión una vez que se crea.
+    private $connection; // Atributo Conexión, aquí se guardar la conexión una vez que se crea.
  
     function __construct() // Este método es el que le asigna los valores a cada atributo de la clase
                            // El valor asignado es el que esta entre Comillas.

@@ -2,7 +2,7 @@
 require_once "../models/docentesModel.php";
 
 class docentesController extends docentesModel {
-    public $nombre;
+    public $nombres;
     public $apellido;
     public $telefono;
     public $correo;
