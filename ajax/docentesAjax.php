@@ -13,7 +13,7 @@ switch ($method){
         $objDocente->telefono = $dataForm["telefono"];
         $objDocente->correo   = $dataForm["correo"];
         $res = $objDocente->guardarDocente($objDocente);
-        //se puede devolber un Json para entregar notificaciones
+        //se puede devolver un Json para entregar notificaciones
         if ($res) {
             echo "Guardado Correctamente";
         } else {

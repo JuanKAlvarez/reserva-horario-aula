@@ -1,7 +1,7 @@
 <?php 
- $page = "Docentes"; 
+$page = "Docentes"; 
 ?>
-   
+
             <!-- Content Header (Page header) -->
             <div class="content-header">
                 <div class="container-fluid">
@@ -23,7 +23,7 @@
             <!-- Main content -->
             <section class="content">
                 <div class="container-fluid">
-                    <!-- Formulario de Ingreso de Informacion -->
+                    <!-- Formulario de Ingreso de Información -->
                     <div class="row">
                         <div class="col-lg-2 col-1">
                         </div>
@@ -38,7 +38,7 @@
                                 <form class="form-horizontal " id="Formulario">
                                 <div class="row">
                                     <div class="col-md-12">
-                                         <br>
+                                        <br>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -93,18 +93,9 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                           
                                     </div>
                                 </div>
-
                                 
-
-                                
-
-                                
-
-                                
-
                                 </fieldset>
                                 </form>
                             </div>
@@ -123,11 +114,11 @@
                                 <div class="card">
                                     <div class="card-header">
                                     <h3 class="card-title">Registros</h3>
-                    
+
                                     <div class="card-tools">
                                         <div class="input-group input-group-sm" style="width: 150px;">
                                         <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-                    
+
                                         <div class="input-group-append">
                                             <button type="submit" class="btn btn-default">
                                             <i class="fas fa-search"></i>
@@ -145,7 +136,7 @@
                                             <th>Tipo Gastos</th>
                                             <th>Fecha</th>
                                             <th>Valor</th>
-                                            <th>Descripcion</th>
+                                            <th>Descripción</th>
                                             <th>Estado</th>
                                         </tr>
                                         </thead>
@@ -226,7 +217,6 @@
                         <div class="col-lg-2 col-1">
                         </div>
                     </div>     
-               
                 </div><!-- /.container-fluid -->
             </section>
             <!-- /.content Main content-->
