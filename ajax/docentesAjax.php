@@ -1,5 +1,6 @@
 <?php
-echo json_encode(array('resp' => 1));
+//echo json_encode(array('datos' => 1));
+echo "Hola";
 
 // <?php
 // echo json_encode(array('success' => 1));
