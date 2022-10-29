@@ -8,9 +8,10 @@ const saveForm =  (parForm )  =>  {
     $.ajax({
         type    : "POST",
         url     : ruta,
+        // dataType: "json",
         data    : {
             method  : 'guardar',
-            result  : JSON.stringify(dataForm)          
+            result  : JSON.parse(dataForm)          
         },
         success : function(resp){
             alert(resp);
