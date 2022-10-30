@@ -31,6 +31,14 @@ class docentesModel extends PDODB{
         }
         return $data;
     }
+
+    protected static function borrarDocente(int $idRegistro){
+        $con = new PDODB();
+        $res = $con->connect()->prepare('DELETE FROM tbl_docentes WHERE id = :idRegistro');
+        $res->bindParam(':idRegistro'  , $idRegistro );
+        $res->execute();
+        return $res;
+    }
     
     
     

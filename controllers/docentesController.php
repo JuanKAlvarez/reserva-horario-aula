@@ -10,8 +10,13 @@ class docentesController extends docentesModel {
     public static function guardarDocente(docentesController $objDocente){
         return docentesModel::guardarDocente($objDocente);
     }
+
     public static function ListarDocente(){
         return docentesModel::listarDocente();
+    }
+    
+    public static function borrarDocente(int $idRegistro){
+        return docentesModel::borrarDocente($idRegistro);
     }
 
 }

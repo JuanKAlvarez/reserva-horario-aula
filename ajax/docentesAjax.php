@@ -23,12 +23,13 @@ switch ($method){
             echo "Guardado Correctamente";
             //echo json_encode(array('success' => 1));
         } else {
-            //echo "No se Guardo Correctamente";
-            echo json_encode(array('success' => 0));
+            echo "No se Guardo Correctamente";
+            //echo json_encode(array('success' => 0));
         }
         // nos quedamos en el  minuto 21:39 del video
         break;
     case 'listar':
+        $comilla ="'";
         $list =  $objDocente->ListarDocente();
         $tabla = '';
         foreach ($list as $key ){
@@ -39,12 +40,24 @@ switch ($method){
                         <td>'.$key['apellidos'].'</td>
                         <td>'.$key['correo'].'</td>
                         <td>'.$key['telefono'].'</td>
-                        <td> Editar  -  Borrar </td>
+                        <td> 
+                            <button type="button" OnClick="editForm('.$comilla.'docentes'.$comilla.' )" class="btn btn-info btn-xs"> Editar </button>  
+                            <button type="button" OnClick="deleteForm('.$comilla.'docentes'.$comilla.', '.$key['id'].' )"   class="btn btn-danger btn-xs"> Eliminar </button>  
+                        </td>
                     </tr>';
         }
         echo $tabla; 
         break;
-    default:
-        #code
+    case 'eliminar':
+        $idRegistro   = $_POST['idRegistro'];
+        $resp =  $objDocente->borrarDocente($idRegistro);
+        if ($resp) {
+            echo "El registro Se elimino correctamente"; 
+        } else {
+            echo "El registro NO se Elimino"; 
+        }
+        break;
+        default:
+            echo "Seleccione un Método Correcto"; 
         break;
 }

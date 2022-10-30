@@ -37,6 +37,23 @@ const listTabla =  (parTabla )  =>  {
     
 }
 
+const deleteForm =  (parTabla, parId )  =>  {
+    let ruta = obtenerRuta(parTabla);
+    $.ajax({
+        type    : "POST",
+        url     : ruta,
+        data    : { 
+            'method'      : 'eliminar', 
+            'idRegistro'  : parId  
+        },
+        success : function(resp){
+            alert(resp);
+            listTabla(parTabla);
+        } 
+    });
+    
+}
+
 const formatJson = () => {
     const formulario = document.getElementById("Formulario");
     const datos = new FormData(formulario);
