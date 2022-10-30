@@ -7,10 +7,8 @@ class docentesController extends docentesModel {
     public $telefono;
     public $correo;
 
-    public function guardarDocente(docentesController $objDocente){
-
+    public static function guardarDocente(docentesController $objDocente){
         return docentesModel::guardarDocente($objDocente);
- 
     }
 
 }

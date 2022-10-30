@@ -3,19 +3,21 @@
 require_once "clsConexion.php";
 
 class docentesModel extends PDODB{
-    private $nombres;
-    private $apellidos;
-    private $telefono;
-    private $correo;
+    protected $nombres;
+    protected $apellidos;
+    protected $telefono;
+    protected $correo;
     
-    protected function guardarDocente(docentesController $docente){
+    protected static function guardarDocente(docentesController $docente){
         $con = new PDODB();
-        $res = $con->connect()->prepare('INSERT INTO tbl_docentes Values(null, :nombres, :apellidos, :correo, :telefono )');
-        $res->bindParam(':nombres'  , $docente->nombres  , PDO::PARAM_STR, 50);
-        $res->bindParam(':apellidos', $docente->apellidos, PDO::PARAM_STR, 50);
-        $res->bindParam(':correo'   , $docente->correo   , PDO::PARAM_STR, 20);
-        $res->bindParam(':telefono' , $docente->telefono , PDO::PARAM_STR, 60);
+        $res = $con->connect()->prepare('INSERT INTO tbl_docentes(nombres,apellidos,correo,telefono) 
+                                        Values(:nombres, :apellidos, :correo, :telefono )');
+        $res->bindParam(':nombres'  , $docente->nombres  );
+        $res->bindParam(':apellidos', $docente->apellidos);
+        $res->bindParam(':correo'   , $docente->correo   );
+        $res->bindParam(':telefono' , $docente->telefono );
         $res->execute();
+        return $res;
 
     }
     

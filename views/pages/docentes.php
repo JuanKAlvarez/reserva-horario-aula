@@ -47,7 +47,7 @@ $page = "Docentes";
                                         <div class="form-group">
                                             <label class="control-label col-md-10" for="nombre">Nombres</label>  
                                             <div class="col-md-10">
-                                                <input id="nombre" name="nombre" type="text" placeholder="Nombres" class="form-control input-md" required="">
+                                                <input id="nombres" name="nombres" type="text" placeholder="Nombres" class="form-control input-md" required="">
                                             </div>
                                         </div>
                                     </div>
@@ -56,7 +56,7 @@ $page = "Docentes";
                                         <div class="form-group">
                                             <label class="control-label col-md-5" for="apellido">Apellidos</label>  
                                             <div class="col-md-10">
-                                                <input id="apellido" name="apellido" type="text" placeholder="Apellidos" class="form-control input-md" required="">  
+                                                <input id="apellidos" name="apellidos" type="text" placeholder="Apellidos" class="form-control input-md" required="">  
                                             </div>
                                         </div>   
                                     </div>
