@@ -54,6 +54,33 @@ const deleteForm =  (parTabla, parId )  =>  {
     
 }
 
+const editForm =  (parTabla, parId )  =>  {
+    let ruta = obtenerRuta(parTabla);
+    const formulario = document.getElementById("Formulario");
+    $nombres   = 'nombres_'   + parId;
+    $apellidos = 'apellidos_' + parId;
+    $correo    = 'correo_'    + parId;
+    $telefono  = 'telefono_'  + parId;
+    
+    document.getElementById('nombres').value   = document.getElementById($nombres).innerText;
+    document.getElementById('apellidos').value = document.getElementById($apellidos).innerText;
+    document.getElementById('correo').value    = document.getElementById($correo).innerText;
+    document.getElementById('telefono').value  = document.getElementById($telefono).innerText;
+   //  $.ajax({
+   //      type    : "POST",
+   //      url     : ruta,
+   //      data    : { 
+   //          'method'      : 'eliminar', 
+   //          'idRegistro'  : parId  
+   //      },
+   //      success : function(resp){
+   //          alert(resp);
+   //          listTabla(parTabla);
+   //      } 
+   //  });
+   //  
+}
+
 const formatJson = () => {
     const formulario = document.getElementById("Formulario");
     const datos = new FormData(formulario);

@@ -35,13 +35,13 @@ switch ($method){
         foreach ($list as $key ){
             $tabla .= '
                     <tr>
-                        <td>'.$key['id'].'</td>
-                        <td>'.$key['nombres'].'</td>
-                        <td>'.$key['apellidos'].'</td>
-                        <td>'.$key['correo'].'</td>
-                        <td>'.$key['telefono'].'</td>
+                        <td id="id_'.$key['id'].'" >'.$key['id'].'</td>
+                        <td id="nombres_'.$key['id'].'" >'.$key['nombres'].'</td>
+                        <td id="apellidos_'.$key['id'].'" >'.$key['apellidos'].'</td>
+                        <td id="correo_'.$key['id'].'" >'.$key['correo'].'</td>
+                        <td id="telefono_'.$key['id'].'" >'.$key['telefono'].'</td>
                         <td> 
-                            <button type="button" OnClick="editForm('.$comilla.'docentes'.$comilla.' )" class="btn btn-info btn-xs"> Editar </button>  
+                            <button type="button" OnClick="editForm('.$comilla.'docentes'.$comilla.', '.$key['id'].' )" class="btn btn-info btn-xs"> Editar </button>  
                             <button type="button" OnClick="deleteForm('.$comilla.'docentes'.$comilla.', '.$key['id'].' )"   class="btn btn-danger btn-xs"> Eliminar </button>  
                         </td>
                     </tr>';
