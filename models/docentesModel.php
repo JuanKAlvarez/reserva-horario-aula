@@ -20,6 +20,17 @@ class docentesModel extends PDODB{
         return $res;
 
     }
+
+    protected static function listarDocente(){
+        $con = new PDODB();
+        $res = $con->connect()->prepare('SELECT * FROM tbl_docentes ORDER BY id DESC');
+        $res->execute();
+        $data = array();
+        while ($row = $res->fetch(PDO::FETCH_ASSOC)) {
+            array_push($data , $row);
+        }
+        return $data;
+    }
     
     
     

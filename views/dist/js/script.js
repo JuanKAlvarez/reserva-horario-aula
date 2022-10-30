@@ -17,6 +17,23 @@ const saveForm =  (parForm )  =>  {
             alert(resp);
         } 
     });
+    listTabla(parForm);
+    const formulario = document.getElementById("Formulario");
+    formulario.reset();
+    
+}
+
+const listTabla =  (parTabla )  =>  {
+    let ruta = obtenerRuta(parTabla);
+    $.ajax({
+        type    : "POST",
+        url     : ruta,
+        data    : { 'method'  : 'listar' },
+        success : function(resp){
+            $('tbody').text('');
+            $('tbody').html(resp);
+        } 
+    });
     
 }
 
