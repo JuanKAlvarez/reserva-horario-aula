@@ -48,11 +48,27 @@ switch ($method){
         }
         echo $tabla; 
         break;
+    case 'editar':
+        $idRegistro   = $_POST['idRegistro'];
+        $dataForm   = $_POST['result'];
+
+        $objDocente->nombres   = $dataForm["nombres"];
+        $objDocente->apellidos = $dataForm["apellidos"];
+        $objDocente->telefono  = $dataForm["telefono"];
+        $objDocente->correo    = $dataForm["correo"];
+
+        $resp =  $objDocente->editarDocente($objDocente, $idRegistro);
+        if ($resp) {
+            echo "El registro se edito correctamente"; 
+        } else {
+            echo "El registro NO se Edito"; 
+        }
+        break;
     case 'eliminar':
         $idRegistro   = $_POST['idRegistro'];
         $resp =  $objDocente->borrarDocente($idRegistro);
         if ($resp) {
-            echo "El registro Se elimino correctamente"; 
+            echo "El registro se elimino correctamente"; 
         } else {
             echo "El registro NO se Elimino"; 
         }

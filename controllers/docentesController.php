@@ -19,4 +19,8 @@ class docentesController extends docentesModel {
         return docentesModel::borrarDocente($idRegistro);
     }
 
+    public static function editarDocente(docentesController $objDocente, int $idRegistro){
+        return docentesModel::editarDocente($objDocente, $idRegistro);
+    }
+
 }

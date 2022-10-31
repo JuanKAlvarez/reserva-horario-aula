@@ -39,6 +39,24 @@ class docentesModel extends PDODB{
         $res->execute();
         return $res;
     }
+
+    protected static function editarDocente(docentesController $docente, int $idRegistro){
+        $con = new PDODB();
+        $res = $con->connect()->prepare('UPDATE tbl_docentes 
+                                        SET nombres   = :nombres, 
+                                            apellidos = :apellidos, 
+                                            correo    = :correo, 
+                                            telefono  = :telefono 
+                                        WHERE id = :idRegistro');
+        $res->bindParam(':nombres'    , $docente->nombres  );
+        $res->bindParam(':apellidos'  , $docente->apellidos);
+        $res->bindParam(':correo'     , $docente->correo   );
+        $res->bindParam(':telefono'   , $docente->telefono );
+        $res->bindParam(':idRegistro' , $idRegistro );
+        $res->execute();
+        return $res;
+        
+    }
     
     
     

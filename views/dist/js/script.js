@@ -2,7 +2,7 @@ window.onload = function () {
     ch('views/pages/docentes.php');
 } 
 
-const saveForm =  (parForm )  =>  {
+const saveForm =  (parForm)  =>  {
     let dataForm = formatJson();
     let ruta = obtenerRuta(parForm);
     $.ajax({
@@ -54,9 +54,13 @@ const deleteForm =  (parTabla, parId )  =>  {
     
 }
 
-const editForm =  (parTabla, parId )  =>  {
-    let ruta = obtenerRuta(parTabla);
+const editForm =  (parForm, parId )  =>  {
+    let ruta = obtenerRuta(parForm);
+
     const formulario = document.getElementById("Formulario");
+    const btnGuardar = document.getElementById("guardar");
+    const btnLimpiar = document.getElementById("limpiar");
+
     $nombres   = 'nombres_'   + parId;
     $apellidos = 'apellidos_' + parId;
     $correo    = 'correo_'    + parId;
@@ -66,19 +70,44 @@ const editForm =  (parTabla, parId )  =>  {
     document.getElementById('apellidos').value = document.getElementById($apellidos).innerText;
     document.getElementById('correo').value    = document.getElementById($correo).innerText;
     document.getElementById('telefono').value  = document.getElementById($telefono).innerText;
-   //  $.ajax({
-   //      type    : "POST",
-   //      url     : ruta,
-   //      data    : { 
-   //          'method'      : 'eliminar', 
-   //          'idRegistro'  : parId  
-   //      },
-   //      success : function(resp){
-   //          alert(resp);
-   //          listTabla(parTabla);
-   //      } 
-   //  });
-   //  
+
+    btnGuardar.removeAttribute("Onclick");
+    btnGuardar.setAttribute("Onclick", `editarRegistro('${parForm}',${parId})`);
+    btnLimpiar.setAttribute("Onclick", `cancelarEditar('${parForm}')`);
+    btnGuardar.innerHTML  = "Editar";
+    btnLimpiar.innerHTML  = "Cancelar";
+}
+
+const editarRegistro = (parForm, parId) => {
+    let dataForm = formatJson();
+    let ruta = obtenerRuta(parForm);
+    $.ajax({
+        type    : "POST",
+        url     : ruta,
+        data    : { 
+            'method'      : 'editar', 
+            'idRegistro'  : parId ,
+            'result'      : JSON.parse(dataForm)   
+        },
+        success : function(resp){
+            alert(resp);
+            listTabla(parForm);
+        } 
+    });
+    const formulario = document.getElementById("Formulario");
+    formulario.reset(); 
+    cancelarEditar(parForm); 
+}
+
+const cancelarEditar = (parForm) => {
+    const btnGuardar = document.getElementById("guardar");
+    const btnLimpiar = document.getElementById("limpiar");
+    btnGuardar.removeAttribute("Onclick");
+    btnLimpiar.removeAttribute("Onclick");
+    btnGuardar.innerHTML  = "Guardar";
+    btnLimpiar.innerHTML  = "Limpiar";
+    btnGuardar.setAttribute("Onclick", `saveForm('${parForm}')`);
+
 }
 
 const formatJson = () => {
@@ -97,7 +126,7 @@ const obtenerRuta = (parForm) => {
         grupos   : "" ,
         materias : "" ,
         reservas : "" 
-};
+    };
 
     return rutas[parForm];
 }
