@@ -2,7 +2,7 @@ window.onload = function () {
     ch('views/pages/docentes.php');
 } 
 
-const saveForm =  (parForm)  =>  {
+const saveForm = (parForm)  =>  {
     let dataForm = formatJson();
     let ruta = obtenerRuta(parForm);
     $.ajax({
@@ -23,7 +23,7 @@ const saveForm =  (parForm)  =>  {
     
 }
 
-const listTabla =  (parTabla )  =>  {
+const listTabla = (parTabla )  =>  {
     let ruta = obtenerRuta(parTabla);
     $.ajax({
         type    : "POST",
@@ -37,39 +37,39 @@ const listTabla =  (parTabla )  =>  {
     
 }
 
-const deleteForm =  (parTabla, parId )  =>  {
-    let ruta = obtenerRuta(parTabla);
-    $.ajax({
-        type    : "POST",
-        url     : ruta,
-        data    : { 
-            'method'      : 'eliminar', 
-            'idRegistro'  : parId  
-        },
-        success : function(resp){
-            alert(resp);
-            listTabla(parTabla);
-        } 
-    });
+const deleteForm = (parTabla, parId )  =>  {
+    if  (confirm("¿Desea ELIMINAR el registro " + parId + "?")) {
+        let ruta = obtenerRuta(parTabla);
+        $.ajax({
+            type    : "POST",
+            url     : ruta,
+            data    : { 
+                'method'      : 'eliminar', 
+                'idRegistro'  : parId  
+            },
+            success : function(resp){
+                alert(resp);
+                listTabla(parTabla);
+            } 
+        });
+    }
     
 }
 
-const editForm =  (parForm, parId )  =>  {
+const editForm = (parForm, parId )  =>  {
     let ruta = obtenerRuta(parForm);
 
     const formulario = document.getElementById("Formulario");
     const btnGuardar = document.getElementById("guardar");
     const btnLimpiar = document.getElementById("limpiar");
 
-    $nombres   = 'nombres_'   + parId;
-    $apellidos = 'apellidos_' + parId;
-    $correo    = 'correo_'    + parId;
-    $telefono  = 'telefono_'  + parId;
-    
-    document.getElementById('nombres').value   = document.getElementById($nombres).innerText;
-    document.getElementById('apellidos').value = document.getElementById($apellidos).innerText;
-    document.getElementById('correo').value    = document.getElementById($correo).innerText;
-    document.getElementById('telefono').value  = document.getElementById($telefono).innerText;
+    let arrInputsNameForm;
+    arrInputsNameForm = getNameInputs();
+
+    arrInputsNameForm.forEach(e => {
+        row  = e + '_' + parId;
+        document.getElementById(e).value   = document.getElementById(row).innerText;
+    });
 
     btnGuardar.removeAttribute("Onclick");
     btnGuardar.setAttribute("Onclick", `editarRegistro('${parForm}',${parId})`);
@@ -114,7 +114,7 @@ const formatJson = () => {
     const formulario = document.getElementById("Formulario");
     const datos = new FormData(formulario);
     const datosCompletos = Object.fromEntries(datos.entries());
-    return JSON.stringify(datosCompletos)
+    return JSON.stringify(datosCompletos);
 }
 
 const obtenerRuta = (parForm) => {
@@ -131,7 +131,22 @@ const obtenerRuta = (parForm) => {
     return rutas[parForm];
 }
 
-function ch(urlHijo) {
+const getNameInputs = () => {
+    
+    const formulario = document.getElementById("Formulario");
+    const datos = new FormData(formulario);
+    const datosCompletos = Object.fromEntries(datos.entries());
+    
+    idForms = new Array();
+    idForms = Object.keys(datosCompletos);
+    
+    idRegistros = new Array();
+    idRegistros = Object.keys(datosCompletos);
+    
+    return idRegistros;
+}
+
+const ch = (urlHijo) => {
     $.ajax({
         type: "POST",
         url: urlHijo,

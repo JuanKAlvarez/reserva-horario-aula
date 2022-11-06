@@ -29,7 +29,7 @@ switch ($method){
         // nos quedamos en el  minuto 21:39 del video
         break;
     case 'listar':
-        $comilla ="'";
+        $docentes ="'docentes'";
         $list =  $objDocente->ListarDocente();
         $tabla = '';
         foreach ($list as $key ){
@@ -41,8 +41,8 @@ switch ($method){
                         <td id="correo_'.$key['id'].'" >'.$key['correo'].'</td>
                         <td id="telefono_'.$key['id'].'" >'.$key['telefono'].'</td>
                         <td> 
-                            <button type="button" OnClick="editForm('.$comilla.'docentes'.$comilla.', '.$key['id'].' )" class="btn btn-info btn-xs"> Editar </button>  
-                            <button type="button" OnClick="deleteForm('.$comilla.'docentes'.$comilla.', '.$key['id'].' )"   class="btn btn-danger btn-xs"> Eliminar </button>  
+                            <button type="button" OnClick="editForm('.$docentes.', '.$key['id'].' )" class="btn btn-info btn-xs"> Editar </button>  
+                            <button type="button" OnClick="deleteForm('.$docentes.', '.$key['id'].' )"   class="btn btn-danger btn-xs"> Eliminar </button>  
                         </td>
                     </tr>';
         }
