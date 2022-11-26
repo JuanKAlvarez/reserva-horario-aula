@@ -48,7 +48,7 @@ $pageForm = "'docentes'";
                                         <div class="form-group">
                                             <label class="control-label col-md-10" for="nombre">Nombres</label>  
                                             <div class="col-md-10">
-                                                <input id="nombres" name="nombres" type="text" placeholder="Nombres" class="form-control input-md" required="">
+                                                <input id="nombres" name="nombres" required type="text" placeholder="Nombres" class="form-control input-md" required="">
                                             </div>
                                         </div>
                                     </div>
@@ -57,7 +57,7 @@ $pageForm = "'docentes'";
                                         <div class="form-group">
                                             <label class="control-label col-md-5" for="apellido">Apellidos</label>  
                                             <div class="col-md-10">
-                                                <input id="apellidos" name="apellidos" type="text" placeholder="Apellidos" class="form-control input-md" required="">  
+                                                <input id="apellidos" name="apellidos" required type="text" placeholder="Apellidos" class="form-control input-md" required="">  
                                             </div>
                                         </div>   
                                     </div>
@@ -68,7 +68,7 @@ $pageForm = "'docentes'";
                                         <div class="form-group">
                                             <label class="col-md-10 control-label" for="correo">Correo</label>  
                                             <div class="col-md-10">
-                                                <input id="correo" name="correo" type="text" placeholder="Correo" class="form-control input-md" required="" type="email">
+                                                <input id="correo" name="correo" required type="email"  placeholder="Correo" class="form-control input-md" required="" type="email">
                                             </div>
                                         </div>
                                         </div>
@@ -77,7 +77,7 @@ $pageForm = "'docentes'";
                                         <div class="form-group">
                                             <label class="col-md-10 control-label" for="telefono">Teléfono</label>  
                                             <div class="col-md-10">
-                                                <input id="telefono" name="telefono" type="text" placeholder="Teléfono" class="form-control input-md" required="">
+                                                <input id="telefono" required name="telefono" type="text" placeholder="Teléfono" class="form-control input-md" required="">
                                             </div>
                                         </div> 
                                     </div>
@@ -160,7 +160,11 @@ $pageForm = "'docentes'";
             <!-- /.content Main content-->
             <!-- Scripts  pra el Docente-->
             <script>
-                $(document).ready(function(){
-                    listTabla('docentes');
-                }); 
+                let  ruta;
+                page = 'docentes';
+                ruta = obtenerRuta(page);
+               // $(document).ready(function(){
+                listTabla(page);     
+               // }); 
+
             </script>

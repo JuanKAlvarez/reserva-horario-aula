@@ -1,10 +1,9 @@
 window.onload = function () {
-    ch('views/pages/docentes.php');
+    ch('views/pages/dashboard.php');
 } 
 
 const saveForm = (parForm)  =>  {
     let dataForm = formatJson();
-    let ruta = obtenerRuta(parForm);
     $.ajax({
         type    : "POST",
         url     : ruta,
@@ -24,7 +23,6 @@ const saveForm = (parForm)  =>  {
 }
 
 const listTabla = (parTabla )  =>  {
-    let ruta = obtenerRuta(parTabla);
     $.ajax({
         type    : "POST",
         url     : ruta,
@@ -39,7 +37,6 @@ const listTabla = (parTabla )  =>  {
 
 const deleteForm = (parTabla, parId )  =>  {
     if  (confirm("¿Desea ELIMINAR el registro " + parId + "?")) {
-        let ruta = obtenerRuta(parTabla);
         $.ajax({
             type    : "POST",
             url     : ruta,
@@ -57,7 +54,6 @@ const deleteForm = (parTabla, parId )  =>  {
 }
 
 const editForm = (parForm, parId )  =>  {
-    let ruta = obtenerRuta(parForm);
 
     const formulario = document.getElementById("Formulario");
     const btnGuardar = document.getElementById("guardar");
@@ -80,7 +76,6 @@ const editForm = (parForm, parId )  =>  {
 
 const editarRegistro = (parForm, parId) => {
     let dataForm = formatJson();
-    let ruta = obtenerRuta(parForm);
     $.ajax({
         type    : "POST",
         url     : ruta,
@@ -155,4 +150,5 @@ const ch = (urlHijo) => {
             $('#qa').html(datosP);
         }
     });
+    listTabla(page);
 }
