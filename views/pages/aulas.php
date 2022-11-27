@@ -1,6 +1,10 @@
 <?php 
-$page = "Aulas"; 
-$pageForm = "'aulas'"; 
+require_once  $_SERVER['DOCUMENT_ROOT']."/reserva-horario-aula/libs/app.php";
+$page = "aulas"; 
+$pageForm = "'$page'"; 
+$campos = [ "Numero",
+            "Bloque",
+            "Descripción"];
 ?>
 
             <!-- Content Header (Page header) -->
@@ -8,7 +12,7 @@ $pageForm = "'aulas'";
                 <div class="container-fluid">
                     <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0"><?php  echo $page; ?></h1>
+                        <h1 class="m-0"><?php  echo strtoupper($page);  ?></h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -32,7 +36,7 @@ $pageForm = "'aulas'";
                             <!-- general form elements -->
                             <div class="card card-primary ">
                                 <div class="card-header " >
-                                    <h3 class="card-title">Captura de <?php  echo $page; ?></h3>
+                                    <h3 class="card-title">Captura de <?php  echo ucwords($page); ?></h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
@@ -42,44 +46,69 @@ $pageForm = "'aulas'";
                                         <br>
                                     </div>
                                 </div>
+                                
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <!-- Text input numero-->
+                                        <?php 
+                                            $campo = $campos[0];
+                                            $campo_ = formatCode($campo) ;
+                                        ?>
+                                        <!-- Text input <?php echo $campo  ?>-->
                                         <div class="form-group">
-                                            <label class="control-label col-md-10" for="numero">numero</label>  
+                                            <label class="control-label col-md-10" for="<?php echo $campo_  ?>">
+                                                <?php echo $campo  ?>
+                                            </label>  
                                             <div class="col-md-10">
-                                                <input id="numero" name="numero" required type="text" placeholder="numero" class="form-control input-md" >
+                                                <input  id="<?php echo $campo_  ?>" 
+                                                        name="<?php echo $campo_  ?>" 
+                                                        placeholder="<?php echo $campo  ?>" 
+                                                        type="text" 
+                                                        class="form-control input-md" required>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <!-- Text input-->
+                                        <?php 
+                                            $campo = $campos[1];
+                                            $campo_ = formatCode($campo) ;
+                                        ?>
+                                        <!-- Text input <?php echo $campo  ?>-->
                                         <div class="form-group">
-                                            <label class="control-label col-md-5" for="bloque">Bloque</label>  
+                                            <label class="control-label col-md-10" for="<?php echo $campo_  ?>">
+                                                <?php echo $campo  ?>
+                                            </label>  
                                             <div class="col-md-10">
-                                                <input id="bloque" name="bloque" required type="text" placeholder="bloque" class="form-control input-md">  
+                                                <input  id="<?php echo $campo_  ?>" 
+                                                        name="<?php echo $campo_  ?>" 
+                                                        placeholder="<?php echo $campo  ?>" 
+                                                        type="text" 
+                                                        class="form-control input-md" required>
                                             </div>
-                                        </div>   
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                            <!-- Text input-->
+                                        <?php 
+                                            $campo = $campos[2];
+                                            $campo_ = formatCode($campo) ;
+                                        ?>
+                                        <!-- Text input <?php echo $campo  ?>-->
                                         <div class="form-group">
-                                            <label class="col-md-10 control-label" for="correo">Correo</label>  
+                                            <label class="control-label col-md-10" for="<?php echo $campo_  ?>">
+                                                <?php echo $campo  ?>
+                                            </label>  
                                             <div class="col-md-10">
-                                                <input id="correo" name="correo" required type="email"  placeholder="Correo" class="form-control input-md" required="" type="email">
+                                                <input  id="<?php echo $campo_  ?>" 
+                                                        name="<?php echo $campo_  ?>" 
+                                                        placeholder="<?php echo $campo  ?>" 
+                                                        type="text" 
+                                                        class="form-control input-md" required>
                                             </div>
                                         </div>
-                                        </div>
+                                    </div>
                                     <div class="col-md-6">
-                                        <!-- Text input-->
-                                        <div class="form-group">
-                                            <label class="col-md-10 control-label" for="telefono">Teléfono</label>  
-                                            <div class="col-md-10">
-                                                <input id="telefono" required name="telefono" type="text" placeholder="Teléfono" class="form-control input-md" required="">
-                                            </div>
-                                        </div> 
+                                        
                                     </div>
                                 </div>
                                 <div class="row">
@@ -133,10 +162,13 @@ $pageForm = "'aulas'";
                                     <table id="tabla" class="table table-head-fixed text-nowrap">
                                         <thead>
                                         <tr>
-                                            <th>id</th>
-                                            <th>Numero</th>
-                                            <th>Bloque</th>
-                                            <th>Descripción</th>
+                                            <th>Id</th>
+                                            <?php  
+                                                foreach($campos as $campo){
+                                                    echo "<th>".$campo."</th>";
+                                                }
+                                            ?>
+                                            <th>Acciones</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -156,13 +188,10 @@ $pageForm = "'aulas'";
                 </div><!-- /.container-fluid -->
             </section>
             <!-- /.content Main content-->
-            <!-- Scripts  pra el Docente-->
+            <!-- Scripts de pagina-->
             <script>
-               // let  ruta;
-                //page = 'aulas';
-               // ruta = obtenerRuta(page);
-               // $(document).ready(function(){
-               // listTabla(page);     
-               // }); 
-
+                let  ruta;
+                page = <?php echo $pageForm?> ;
+                ruta = obtenerRuta(page);
+                listTabla(page);     
             </script>

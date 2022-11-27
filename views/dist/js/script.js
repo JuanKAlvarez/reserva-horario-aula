@@ -59,13 +59,7 @@ const editForm = (parForm, parId )  =>  {
     const btnGuardar = document.getElementById("guardar");
     const btnLimpiar = document.getElementById("limpiar");
 
-    let arrInputsNameForm;
-    arrInputsNameForm = getNameInputs();
-
-    arrInputsNameForm.forEach(e => {
-        row  = e + '_' + parId;
-        document.getElementById(e).value   = document.getElementById(row).innerText;
-    });
+    fillForm(parId);
 
     btnGuardar.removeAttribute("Onclick");
     btnGuardar.setAttribute("Onclick", `editarRegistro('${parForm}',${parId})`);
@@ -74,6 +68,14 @@ const editForm = (parForm, parId )  =>  {
     btnLimpiar.innerHTML  = "Cancelar";
 }
 
+const fillForm = ( parId )  =>  {
+    let arrInputsNameForm = new Array;
+    arrInputsNameForm = getNameInputs();
+    arrInputsNameForm.forEach(e => {
+        row  = e + '_' + parId;
+        document.getElementById(e).value   = document.getElementById(row).innerText;
+    });
+}
 const editarRegistro = (parForm, parId) => {
     let dataForm = formatJson();
     $.ajax({
@@ -126,7 +128,7 @@ const obtenerRuta = (parForm) => {
     return rutas[parForm];
 }
 
-const getNameInputs = () => {
+const getNameInputs = () =>  {
     
     const formulario = document.getElementById("Formulario");
     const datos = new FormData(formulario);
@@ -151,4 +153,5 @@ const ch = (urlHijo) => {
         }
     });
     listTabla(page);
+    
 }
