@@ -29,6 +29,10 @@
     </div>
 
     <!-- Scripts --> 
+    <script>
+        ruta = '';
+        page = 'dashboard' ;
+    </script>
     <?php require_once "scripts-js.php"; ?>   
 
 </body>

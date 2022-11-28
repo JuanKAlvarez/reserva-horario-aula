@@ -21,14 +21,14 @@
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Dashboard -->
-                <li  OnClick="ch('views/pages/dashboard.php')" class="nav-item active">
+                <li  OnClick="ch('dashboard')" class="nav-item active">
                     <a  href="#" class="nav-link">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                     <p>Dashboard</p>
                     </a>
                 </li>
                 <!-- Reservas -->
-                <li  OnClick="ch('views/pages/reservas.php')" class="nav-item active">
+                <li  OnClick="ch('reservas')" class="nav-item active">
                     <a  href="#" class="nav-link">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                     <p>Reservas</p>
@@ -36,35 +36,35 @@
                 </li>
                 <hr class="dropdown-divider">
                 <!-- Docentes -->
-                <li OnClick="ch('views/pages/docentes.php')" class="nav-item">
+                <li OnClick="ch('docentes')" class="nav-item">
                     <a href="#" class="nav-link">
                     <i class="far fa-star nav-icon"></i>
                     <p>Docentes</p>
                     </a>
                 </li>
                 <!-- Aulas -->
-                <li OnClick="ch('views/pages/aulas.php')" class="nav-item">
+                <li OnClick="ch('aulas')" class="nav-item">
                     <a href="#" class="nav-link">
                     <i class="far fa-star nav-icon"></i>
                     <p>Aulas</p>
                     </a>
                 </li>
                 <!-- Materias -->
-                <li OnClick="ch('views/pages/materias.php')" class="nav-item">
+                <li OnClick="ch('materias')" class="nav-item">
                     <a href="#" class="nav-link">
                     <i class="far fa-star nav-icon"></i>
                     <p>Materias</p>
                     </a>
                 </li>
                 <!-- Grupos -->
-                <li OnClick="ch('views/pages/grupos.php')" class="nav-item">
+                <li OnClick="ch('grupos')" class="nav-item">
                     <a href="#" class="nav-link">
                     <i class="far fa-star nav-icon"></i>
                     <p>Grupos</p>
                     </a>
                 </li>
                 <!-- Eventos -->
-                <li OnClick="ch('views/pages/eventos.php')" class="nav-item">
+                <li OnClick="ch('eventos')" class="nav-item">
                     <a href="#" class="nav-link">
                     <i class="far fa-star nav-icon"></i>
                     <p>Eventos</p>

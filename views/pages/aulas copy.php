@@ -1,7 +1,7 @@
 <?php 
- $page = "Aulas"; 
+    $page = "Aulas"; 
 ?>
-   
+
             <!-- Content Header (Page header) -->
             <div class="content-header">
             <div class="container-fluid">
@@ -202,7 +202,7 @@
                         <div class="col-lg-2 col-1">
                         </div>
                     </div>     
-               
+
                 </div><!-- /.container-fluid -->
             </section>
             <!-- /.content Main content-->

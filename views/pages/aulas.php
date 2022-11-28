@@ -189,9 +189,3 @@ $campos = [ "Numero",
             </section>
             <!-- /.content Main content-->
             <!-- Scripts de pagina-->
-            <script>
-                let  ruta;
-                page = <?php echo $pageForm?> ;
-                ruta = obtenerRuta(page);
-                listTabla(page);     
-            </script>

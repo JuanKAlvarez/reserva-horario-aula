@@ -1,5 +1,8 @@
+let ruta = '' ;
+let page = '' ;
+
 window.onload = function () {
-    ch('views/pages/dashboard.php');
+    ch('dashboard');
 } 
 
 const saveForm = (parForm)  =>  {
@@ -114,20 +117,6 @@ const formatJson = () => {
     return JSON.stringify(datosCompletos);
 }
 
-const obtenerRuta = (parForm) => {
-    
-    let rutas = {
-        docentes : "./ajax/docentesAjax.php" ,
-        aulas    : "" ,
-        eventos  : "" ,
-        grupos   : "" ,
-        materias : "" ,
-        reservas : "" 
-    };
-
-    return rutas[parForm];
-}
-
 const getNameInputs = () =>  {
     
     const formulario = document.getElementById("Formulario");
@@ -143,7 +132,38 @@ const getNameInputs = () =>  {
     return idRegistros;
 }
 
-const ch = (urlHijo) => {
+const obtenerRutaAjax = (parForm) => {
+    
+    let rutas = {
+        docentes : "./ajax/docentesAjax.php" ,
+        aulas    : "./ajax/aulasAjax.php" ,
+        eventos  : "./ajax/eventosAjax.php" ,
+        grupos   : "./ajax/gruposAjax.php" ,
+        materias : "./ajax/materiasAjax.php" ,
+        reservas : "./ajax/reservasAjax.php" 
+    };
+
+    return rutas[parForm];
+}
+
+const obtenerRuta = (parForm) => {
+    
+    let rutas = {
+        dashboard: "views/pages/dashboard.php" ,
+        docentes : "views/pages/docentes.php" ,
+        aulas    : "views/pages/aulas.php" ,
+        eventos  : "views/pages/eventos.php" ,
+        grupos   : "views/pages/grupos.php" ,
+        materias : "views/pages/materias.php" ,
+        reservas : "views/pages/reservas.php" 
+    };
+
+    return rutas[parForm];
+}
+
+const ch = (hijo) => {
+    urlHijo = obtenerRuta(hijo);
+    
     $.ajax({
         type: "POST",
         url: urlHijo,
@@ -152,6 +172,9 @@ const ch = (urlHijo) => {
             $('#qa').html(datosP);
         }
     });
+
+    ruta = obtenerRutaAjax(hijo);
+    page = hijo;
     listTabla(page);
     
 }
