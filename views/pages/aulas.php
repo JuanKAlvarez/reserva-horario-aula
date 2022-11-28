@@ -62,7 +62,7 @@ $campos = [ "Numero",
                                                 <input  id="<?php echo $campo_  ?>" 
                                                         name="<?php echo $campo_  ?>" 
                                                         placeholder="<?php echo $campo  ?>" 
-                                                        type="text" 
+                                                        type="number" 
                                                         class="form-control input-md" required>
                                             </div>
                                         </div>

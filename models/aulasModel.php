@@ -10,7 +10,7 @@ class aulasModel extends PDODB{
     
     protected static function guardarAula(aulasController $aula){
         $con = new PDODB();
-        $res = $con->connect()->prepare('INSERT INTO tbl_aulas(numero,bloque,correo,descripcion) 
+        $res = $con->connect()->prepare('INSERT INTO tbl_aulas(numero,bloque,descripcion) 
                                         Values(:numero, :bloque, :descripcion )');
         $res->bindParam(':numero'  , $aula->numero  );
         $res->bindParam(':bloque', $aula->bloque);

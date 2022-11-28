@@ -17,15 +17,16 @@ const saveForm = (parForm)  =>  {
         },
         success : function(resp){
             alert(resp);
+            listTabla(parForm);
         } 
     });
-    listTabla(parForm);
     const formulario = document.getElementById("Formulario");
     formulario.reset();
     
 }
 
 const listTabla = (parTabla )  =>  {
+    
     $.ajax({
         type    : "POST",
         url     : ruta,
@@ -79,6 +80,7 @@ const fillForm = ( parId )  =>  {
         document.getElementById(e).value   = document.getElementById(row).innerText;
     });
 }
+
 const editarRegistro = (parForm, parId) => {
     let dataForm = formatJson();
     $.ajax({
@@ -163,7 +165,7 @@ const obtenerRuta = (parForm) => {
 
 const ch = (hijo) => {
     urlHijo = obtenerRuta(hijo);
-    
+
     $.ajax({
         type: "POST",
         url: urlHijo,
