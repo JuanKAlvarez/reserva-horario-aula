@@ -15,6 +15,8 @@
     <script src="<?php echo $viewsPhat ?>plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
     <!-- overlayScrollbars -->
     <script src="<?php echo $viewsPhat ?>plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- select2 -->
+    <script src="<?php echo $viewsPhat ?>plugins/select2/js/select2.js"></script>
     <!-- AdminLTE App -->
     <script src="<?php echo $viewsDistPhat ?>js/adminlte.js"></script> 
     <script src="<?php echo $viewsDistPhat ?>js/script.js"></script> 

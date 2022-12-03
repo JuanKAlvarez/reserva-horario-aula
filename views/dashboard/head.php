@@ -16,5 +16,7 @@
     <link rel="stylesheet" href="<?php echo $viewsPhat ?>plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <!-- Daterange picker -->
     <link rel="stylesheet" href="<?php echo $viewsPhat ?>plugins/daterangepicker/daterangepicker.css">
+    <!-- select2 -->
+    <link rel="stylesheet" href="<?php echo $viewsPhat ?>plugins/select2/css/select2.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?php echo $viewsDistPhat ?>css/adminlte.min.css">
