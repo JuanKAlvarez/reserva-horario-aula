@@ -74,6 +74,13 @@
                             <p>Grupos</p>
                             </a>
                         </li>
+                        <!-- Horarios -->
+                        <li OnClick="ch('horarios')" class="nav-item">
+                            <a href="#" class="nav-link">
+                            <i class="far fa-star nav-icon"></i>
+                            <p>Horarios</p>
+                            </a>
+                        </li>
                         <!-- Eventos -->
                         <li OnClick="ch('eventos')" class="nav-item">
                             <a href="#" class="nav-link">

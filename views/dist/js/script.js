@@ -143,6 +143,7 @@ const obtenerRutaAjax = (parForm) => {
         eventos  : "./ajax/eventosAjax.php" ,
         grupos   : "./ajax/gruposAjax.php" ,
         materias : "./ajax/materiasAjax.php" ,
+        horarios : "./ajax/horariosAjax.php" ,
         reservas : "./ajax/reservasAjax.php" 
     };
 
@@ -158,6 +159,7 @@ const obtenerRuta = (parForm) => {
         eventos  : "views/pages/eventos.php" ,
         grupos   : "views/pages/grupos.php" ,
         materias : "views/pages/materias.php" ,
+        horarios : "views/pages/horarios.php" ,
         reservas : "views/pages/reservas.php" 
     };
 
