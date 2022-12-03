@@ -35,70 +35,53 @@
                     </a>
                 </li>
                 <hr class="dropdown-divider">
-                <!-- Docentes -->
-                <li OnClick="ch('docentes')" class="nav-item">
-                    <a href="#" class="nav-link">
-                    <i class="far fa-star nav-icon"></i>
-                    <p>Docentes</p>
-                    </a>
-                </li>
-                <!-- Aulas -->
-                <li OnClick="ch('aulas')" class="nav-item">
-                    <a href="#" class="nav-link">
-                    <i class="far fa-star nav-icon"></i>
-                    <p>Aulas</p>
-                    </a>
-                </li>
-                <!-- Materias -->
-                <li OnClick="ch('materias')" class="nav-item">
-                    <a href="#" class="nav-link">
-                    <i class="far fa-star nav-icon"></i>
-                    <p>Materias</p>
-                    </a>
-                </li>
-                <!-- Grupos -->
-                <li OnClick="ch('grupos')" class="nav-item">
-                    <a href="#" class="nav-link">
-                    <i class="far fa-star nav-icon"></i>
-                    <p>Grupos</p>
-                    </a>
-                </li>
-                <!-- Eventos -->
-                <li OnClick="ch('eventos')" class="nav-item">
-                    <a href="#" class="nav-link">
-                    <i class="far fa-star nav-icon"></i>
-                    <p>Eventos</p>
-                    </a>
-                </li>
-
-                <hr class="dropdown-divider">
-               <!-- Administración --> 
+                <!-- Administración --> 
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                    <i class="nav-icon fas fa-edit"></i>
-                    <p>
-                        Administración
-                        <i class="fas fa-angle-left right"></i>
-                    </p>
+                        <i class="nav-icon fas fa-edit"></i>
+                        <p>
+                            Administración
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
                     </a>
                     <ul class="nav nav-treeview">
-                    <!-- Tipo Ingresos -->
-                    <li class="nav-item">
-                        <a href="views/pages/forms/validation.html" class="nav-link">
-                        <i class="far fa-file nav-icon"></i>
-                        <p>Tipo Ingresos</p>
-                        </a>
-                    </li>
-                    <!-- Tipo Gastos -->
-                    <li class="nav-item">
-                        <a href="views/pages/forms/validation.html" class="nav-link">
-                        <i class="far fa-file nav-icon"></i>
-                        <p>Tipo Gastos</p>
-                        </a>
-                    </li>
-                    </ul>
-                </li>
-
+                        
+                        <!-- Docentes -->
+                        <li OnClick="ch('docentes')" class="nav-item">
+                            <a href="#" class="nav-link">
+                            <i class="far fa-star nav-icon"></i>
+                            <p>Docentes</p>
+                            </a>
+                        </li>
+                        <!-- Aulas -->
+                        <li OnClick="ch('aulas')" class="nav-item">
+                            <a href="#" class="nav-link">
+                            <i class="far fa-star nav-icon"></i>
+                            <p>Aulas</p>
+                            </a>
+                        </li>
+                        <!-- Materias -->
+                        <li OnClick="ch('materias')" class="nav-item">
+                            <a href="#" class="nav-link">
+                            <i class="far fa-star nav-icon"></i>
+                            <p>Materias</p>
+                            </a>
+                        </li>
+                        <!-- Grupos -->
+                        <li OnClick="ch('grupos')" class="nav-item">
+                            <a href="#" class="nav-link">
+                            <i class="far fa-star nav-icon"></i>
+                            <p>Grupos</p>
+                            </a>
+                        </li>
+                        <!-- Eventos -->
+                        <li OnClick="ch('eventos')" class="nav-item">
+                            <a href="#" class="nav-link">
+                            <i class="far fa-star nav-icon"></i>
+                            <p>Eventos</p>
+                            </a>
+                        </li>
+                    
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->
