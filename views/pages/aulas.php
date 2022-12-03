@@ -85,7 +85,7 @@ $campos = [ "Numero",
                                                         name="<?php echo $campo_  ?>" 
                                                         placeholder="<?php echo $campo  ?>" 
                                                         type="text" 
-                                                        class="form-control input-md" required>
+                                                        class="form-control input-md select2" required>
                                                     <option value="A">A</option>
                                                     <option value="B">B</option>
                                                     <option value="C">C</option>
@@ -219,3 +219,6 @@ $campos = [ "Numero",
             </section>
             <!-- /.content Main content-->
             <!-- Scripts de pagina-->
+            <script>
+                $('.select2').select2();
+            </script>
