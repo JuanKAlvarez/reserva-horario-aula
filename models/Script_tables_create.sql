@@ -33,7 +33,7 @@ CREATE TABLE tbl_eventos (
     nombre int NOT NULL,
     fecha date NOT NULL,
     duracion_horas int NOT NULL,
-    Objetivo varchar(500) NULL,
+    objetivo varchar(500) NULL,
     CONSTRAINT eventos_pk PRIMARY KEY (id)
 );
 
@@ -57,15 +57,14 @@ CREATE TABLE tbl_grupos (
 -- Table: tbl_horarios 
 CREATE TABLE tbl_horarios (
     id int NOT NULL AUTO_INCREMENT,
-    fecha date NOT NULL,
-    hora time NOT NULL,
+    hora varchar(50) NOT NULL,
     CONSTRAINT id_horario  PRIMARY KEY (id)
 );
 
 -- Table: tbl_materias 
 CREATE TABLE tbl_materias (
     id int NOT NULL AUTO_INCREMENT,
-    Codigo varchar(50) NOT NULL,
+    codigo varchar(50) NOT NULL,
     nombre varchar(50) NOT NULL,
     duracion_horas int NOT NULL,
     CONSTRAINT materias_pk PRIMARY KEY (id)
@@ -74,6 +73,7 @@ CREATE TABLE tbl_materias (
 -- Table: tbl_reservas 
 CREATE TABLE tbl_reservas (
     id int NOT NULL AUTO_INCREMENT,
+    fecha date NOT NULL,
     docente_id int NOT NULL,
     aula_id int NOT NULL,
     horario_id int NOT NULL,
