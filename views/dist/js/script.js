@@ -118,7 +118,18 @@ const formatJson = () => {
     const datos = new FormData(formulario);
     const datosCompletos = Object.fromEntries(datos.entries());
     return JSON.stringify(datosCompletos);
+    formulario.getNameInputs
 }
+
+//const getName = () => {
+//    const formulario = document.getElementById("Formulario");
+//    const names = formulario.getNameInputs();
+//    
+//    const datos = new FormData(formulario);
+//    const datosCompletos = Object.fromEntries(datos.entries());
+//    return JSON.stringify(datosCompletos);
+//    
+//}
 
 const getNameInputs = () =>  {
     
