@@ -77,6 +77,7 @@ CREATE TABLE tbl_reservas (
     docente_id int NOT NULL,
     aula_id int NOT NULL,
     horario_id int NOT NULL,
+    CONSTRAINT UC_tbl_reservas UNIQUE (fecha,aula_id,horario_id),
     CONSTRAINT reserva_pk PRIMARY KEY (id)
 );
 
@@ -113,9 +114,8 @@ ALTER TABLE tbl_eventos_grupos ADD CONSTRAINT eventos_grupos_eventos FOREIGN KEY
 ALTER TABLE tbl_eventos_grupos ADD CONSTRAINT eventos_grupos_grupos FOREIGN KEY eventos_grupos_grupos (grupo_id)
     REFERENCES tbl_grupos (id);
 
--- End of file.
 
-------------------------------------------------------
+-- Seeder de la BD
 
 Insert  Into tbl_aulas (numero, bloque, descripcion) 
         Values  (1 , 'A', "A1 - Aula"),
@@ -173,16 +173,16 @@ Insert  Into tbl_docentes_materias (docente_id, materia_id, grupo_id)
                 (5 , 5 , 5 );
 
 Insert  Into tbl_eventos (nombre, fecha, duracion_horas, objetivo) 
-        Values  ('Opela',   '07/05/2022', 6,  'nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat'),
-                ('Lotlux',  '17/06/2022', 10, 'nunc viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper'),
-                ('Bamity',  '20/03/2022', 15, 'pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus'),
-                ('Tresom',  '24/03/2022', 16, 'erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque'),
-                ('Latlux',  '30/05/2022', 22, 'purus phasellus in felis donec semper sapien a libero nam dui proin leo odio'),
-                ('Otcom',   '09/09/2022', 10, 'ut mauris eget massa tempor convallis nulla neque libero convallis'),
-                ('Keylex',  '14/05/2022', 19, 'tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum'),
-                ('Pannier', '04/06/2022', 4,  'est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi'),
-                ('Cookley', '20/08/2022', 24, 'varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla'),
-                ('Duobam',  '26/11/2022', 3,  'duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in');
+        Values  ('Opela',   '2022-05-07', 6,  'nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat'),
+                ('Lotlux',  '2022-06-17', 10, 'nunc viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper'),
+                ('Bamity',  '2022-03-20', 15, 'pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus'),
+                ('Tresom',  '2022-03-24', 16, 'erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque'),
+                ('Latlux',  '2022-05-30', 22, 'purus phasellus in felis donec semper sapien a libero nam dui proin leo odio'),
+                ('Otcom',   '2022-09-09', 10, 'ut mauris eget massa tempor convallis nulla neque libero convallis'),
+                ('Keylex',  '2022-05-14', 19, 'tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum'),
+                ('Pannier', '2022-06-04', 4,  'est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi'),
+                ('Cookley', '2022-08-20', 24, 'varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla'),
+                ('Duobam',  '2022-11-26', 3,  'duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in');
 
 Insert  Into tbl_eventos_grupos (evento_id, grupo_id) 
         Values  (1 , 1 ),
@@ -210,6 +210,10 @@ Insert  Into tbl_horarios (hora)
                 ("21:00 - 21:59"),
                 ("22:00 - 22:59");
 
-Insert  Into tbl_eventos_grupos (fecha, docente_id, aula_id, horario_id) 
-        Values  ('17/12/2022', 1 , 1, 1 ),
-                ('17/12/2022', 2 , 2, 2 );
+Insert  Into tbl_reservas (fecha, docente_id, aula_id, horario_id) 
+        Values  ('2022-05-07', 1, 1, 1 ),
+                ('2022-05-07', 2, 2, 2 ),
+                ('2022-05-07', 3, 3, 3 );
+
+
+-- End of file.
