@@ -36,15 +36,6 @@ CREATE TABLE tbl_grupos (
     CONSTRAINT grupos_pk PRIMARY KEY (id)
 );
 
--- Table: tbl_docentes_materias 
-CREATE TABLE tbl_docentes_materias (
-    id int NOT NULL AUTO_INCREMENT,
-    docente_id int NOT NULL,
-    materia_id int NOT NULL,
-    grupo_id int NOT NULL,
-    CONSTRAINT tbl_docentes_materias PRIMARY KEY (id)
-);
-
 -- Table: tbl_eventos 
 CREATE TABLE tbl_eventos (
     id int NOT NULL AUTO_INCREMENT,
@@ -74,9 +65,11 @@ CREATE TABLE tbl_horarios (
 CREATE TABLE tbl_reservas (
     id int NOT NULL AUTO_INCREMENT,
     fecha date NOT NULL,
-    docente_id int NOT NULL,
-    aula_id int NOT NULL,
     horario_id int NOT NULL,
+    docente_id int NOT NULL,
+    materia_id int NOT NULL,
+    grupo_id int NOT NULL,
+    aula_id int NOT NULL,
     CONSTRAINT UC_tbl_reservas UNIQUE (fecha,aula_id,horario_id),
     CONSTRAINT reserva_pk PRIMARY KEY (id)
 );
@@ -94,17 +87,13 @@ ALTER TABLE tbl_reservas ADD CONSTRAINT Reserva_docentes FOREIGN KEY Reserva_doc
 ALTER TABLE tbl_reservas ADD CONSTRAINT Reserva_horarios FOREIGN KEY Reserva_horarios (horario_id)
     REFERENCES tbl_horarios (id);
 
--- Reference: docentes_materias_docentes (table: docentes_materias)
-ALTER TABLE tbl_docentes_materias ADD CONSTRAINT docentes_materias_docentes FOREIGN KEY docentes_materias_docentes (docente_id)
-    REFERENCES tbl_docentes (id);
-
--- Reference: docentes_materias_grupos (table: docentes_materias)
-ALTER TABLE tbl_docentes_materias ADD CONSTRAINT docentes_materias_grupos FOREIGN KEY docentes_materias_grupos (grupo_id)
-    REFERENCES tbl_grupos (id);
-
--- Reference: docentes_materias_materias (table: docentes_materias)
-ALTER TABLE tbl_docentes_materias ADD CONSTRAINT docentes_materias_materias FOREIGN KEY docentes_materias_materias (materia_id)
+-- Reference: Reserva_materias (table: reserva) ▼
+ALTER TABLE tbl_reservas ADD CONSTRAINT Reserva_materias FOREIGN KEY Reserva_materias (materia_id)
     REFERENCES tbl_materias (id);
+
+-- Reference: Reserva_grupos (table: reserva) ▼
+ALTER TABLE tbl_reservas ADD CONSTRAINT Reserva_grupos FOREIGN KEY Reserva_grupos (grupo_id)
+    REFERENCES tbl_grupos (id);
 
 -- Reference: eventos_grupos_eventos (table: eventos_grupos)
 ALTER TABLE tbl_eventos_grupos ADD CONSTRAINT eventos_grupos_eventos FOREIGN KEY eventos_grupos_eventos (evento_id)
@@ -165,12 +154,7 @@ Insert  Into tbl_grupos (codigo, numero, numero_estudiantes)
                 ('GRP-922', '395341', 41),
                 ('GRP-570', '254469', 41);
 
-Insert  Into tbl_docentes_materias (docente_id, materia_id, grupo_id) 
-        Values  (1 , 1 , 1 ),
-                (2 , 2 , 2 ),
-                (3 , 3 , 3 ),
-                (4 , 4 , 4 ),
-                (5 , 5 , 5 );
+
 
 Insert  Into tbl_eventos (nombre, fecha, duracion_horas, objetivo) 
         Values  ('Opela',   '2022-05-07', 6,  'nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat'),
@@ -210,10 +194,10 @@ Insert  Into tbl_horarios (hora)
                 ("21:00 - 21:59"),
                 ("22:00 - 22:59");
 
-Insert  Into tbl_reservas (fecha, docente_id, aula_id, horario_id) 
-        Values  ('2022-05-07', 1, 1, 1 ),
-                ('2022-05-07', 2, 2, 2 ),
-                ('2022-05-07', 3, 3, 3 );
+Insert  Into tbl_reservas (fecha, horario_id, docente_id, materia_id, grupo_id, aula_id) 
+        Values  ('2022-05-07', 1, 1, 1, 1, 1 ),
+                ('2022-05-07', 2, 2, 2, 2, 2 ),
+                ('2022-05-07', 3, 3, 3, 3, 3 );
 
 
 -- End of file.
