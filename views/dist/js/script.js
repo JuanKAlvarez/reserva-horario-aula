@@ -40,6 +40,21 @@ const listTabla = (parTabla )  =>  {
     
 }
 
+const listarCampo = (parCampo)  =>  {
+    let idCampo = '#' + parCampo;
+    $.ajax({
+        type    : "POST",
+        url     : ruta,
+        data    : { 'method' : 'listarCampo',
+                    'campo'  : parCampo,
+    },
+    success : function(resp){
+            $(idCampo).append(resp);
+        } 
+    });
+    
+}
+
 const deleteForm = (parTabla, parId )  =>  {
     if  (confirm("¿Desea ELIMINAR el registro " + parId + "?")) {
         $.ajax({

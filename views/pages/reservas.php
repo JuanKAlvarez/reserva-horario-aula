@@ -224,4 +224,7 @@ $campos = [ "Fecha",
             <!-- Scripts de pagina-->
             <script>
                 $('.select2').select2();
+                listarCampo('docente');
+                listarCampo('aula');
+                listarCampo('horario');
             </script>

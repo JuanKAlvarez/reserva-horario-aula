@@ -46,6 +46,24 @@ switch ($method){
         }
         echo $tabla; 
         break;
+    case 'listarCampo':
+        // $list =  $objAula->ListarCampos();
+        // $campos = '';
+        // foreach ($list as $key ){
+        //     $campos .= '<option value='. $key['id'].'>'. $key['id'].'</option>';
+        // }
+        $campo   = $_POST['campo'];
+        $campos  = '';
+        switch ($campo){
+            case 'bloque':
+                $campos .= '<option value="A"> A </option>';
+                $campos .= '<option value="B"> B </option>';
+                $campos .= '<option value="C"> C </option>';
+                $campos .= '<option value="D"> D </option>';
+            break;
+        }        
+        echo $campos; 
+        break;
     case 'editar':
         $idRegistro   = $_POST['idRegistro'];
         $dataForm   = $_POST['result'];
