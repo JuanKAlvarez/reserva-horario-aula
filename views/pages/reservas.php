@@ -3,9 +3,11 @@ require_once  $_SERVER['DOCUMENT_ROOT']."/reserva-horario-aula/libs/app.php";
 $page = "reservas"; 
 $pageForm = "'$page'"; 
 $campos = [ "Fecha",
+            "Horario",
             "Docente",
-            "Aula",
-            "Horario"];
+            "Materia",
+            "Grupo",
+            "Aula"];
 ?>
 
             <!-- Content Header (Page header) -->
@@ -84,8 +86,18 @@ $campos = [ "Fecha",
                                                         placeholder="<?php echo $campo  ?>" 
                                                         type="text" 
                                                         class="form-control input-md select2" required>
-                                                    <option value="A">A</option>
-                                            </select>        
+                                                        <option value="08:00 - 8:59">  08:00 - 08:59</option>
+                                                        <option value="09:00 - 9:59">  09:00 - 09:59</option>
+                                                        <option value="10:00 - 10:59"> 10:00 - 10:59</option>
+                                                        <option value="11:00 - 11:59"> 11:00 - 11:59</option>
+                                                        <option value="12:00 - 12:59"> 12:00 - 12:59</option>
+                                                        <option value="13:00 - 13:59"> 13:00 - 13:59</option>
+                                                        <option value="14:00 - 14:59"> 14:00 - 14:59</option>
+                                                        <option value="15:00 - 15:59"> 15:00 - 15:59</option>
+                                                        <option value="16:00 - 15:59"> 16:00 - 15:59</option>
+                                                        <option value="17:00 - 17:59"> 17:00 - 17:59</option>
+                                                        <option value="18:00 - 18:59"> 18:00 - 18:59</option>
+                                            </select>  
                                             </div>
                                         </div>
                                     </div>
@@ -107,8 +119,8 @@ $campos = [ "Fecha",
                                                         placeholder="<?php echo $campo  ?>" 
                                                         type="text" 
                                                         class="form-control input-md select2" required>
-                                                    <option value="B">B</option>
-                                            </select>  
+                                                    <option value="A">A</option>
+                                            </select>        
                                             </div>
                                         </div>
                                     </div>
@@ -128,17 +140,52 @@ $campos = [ "Fecha",
                                                         placeholder="<?php echo $campo  ?>" 
                                                         type="text" 
                                                         class="form-control input-md select2" required>
-                                                        <option value="08:00 - 8:59">  08:00 - 08:59</option>
-                                                        <option value="09:00 - 9:59">  09:00 - 09:59</option>
-                                                        <option value="10:00 - 10:59"> 10:00 - 10:59</option>
-                                                        <option value="11:00 - 11:59"> 11:00 - 11:59</option>
-                                                        <option value="12:00 - 12:59"> 12:00 - 12:59</option>
-                                                        <option value="13:00 - 13:59"> 13:00 - 13:59</option>
-                                                        <option value="14:00 - 14:59"> 14:00 - 14:59</option>
-                                                        <option value="15:00 - 15:59"> 15:00 - 15:59</option>
-                                                        <option value="16:00 - 15:59"> 16:00 - 15:59</option>
-                                                        <option value="17:00 - 17:59"> 17:00 - 17:59</option>
-                                                        <option value="18:00 - 18:59"> 18:00 - 18:59</option>
+                                                    <option value="B">B</option>
+                                            </select>  
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <?php 
+                                            $campo = $campos[4];
+                                            $campo_ = formatCode($campo) ;
+                                        ?>
+                                        <!-- Text input <?php echo $campo  ?>-->
+                                        <div class="form-group">
+                                            <label class="control-label col-md-10" for="<?php echo $campo_  ?>">
+                                                <?php echo $campo  ?>
+                                            </label>  
+                                            <div class="col-md-10">
+                                            <select   id="<?php echo $campo_  ?>" 
+                                                        name="<?php echo $campo_  ?>" 
+                                                        placeholder="<?php echo $campo  ?>" 
+                                                        type="text" 
+                                                        class="form-control input-md select2" required>
+                                                    <option value="A">A</option>
+                                            </select>        
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <?php 
+                                            $campo = $campos[5];
+                                            $campo_ = formatCode($campo) ;
+                                        ?>
+                                        <!-- Text input <?php echo $campo  ?>-->
+                                        <div class="form-group">
+                                            <label class="control-label col-md-10" for="<?php echo $campo_  ?>">
+                                                <?php echo $campo  ?>
+                                            </label>  
+                                            <div class="col-md-10">
+                                            <select   id="<?php echo $campo_  ?>" 
+                                                        name="<?php echo $campo_  ?>" 
+                                                        placeholder="<?php echo $campo  ?>" 
+                                                        type="text" 
+                                                        class="form-control input-md select2" required>
+                                                    <option value="B">B</option>
                                             </select>  
                                             </div>
                                         </div>

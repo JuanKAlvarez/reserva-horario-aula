@@ -35,11 +35,11 @@ switch ($method){
         foreach ($list as $key ){
             $tabla .= '
                     <tr>
-                        <td id="id_'.$key['id'].'" >'.$key['id'].'</td>
-                        <td id="nombres_'.$key['id'].'" >'.$key['nombres'].'</td>
-                        <td id="apellidos_'.$key['id'].'" >'.$key['apellidos'].'</td>
-                        <td id="correo_'.$key['id'].'" >'.$key['correo'].'</td>
-                        <td id="telefono_'.$key['id'].'" >'.$key['telefono'].'</td>
+                        <td val = "'.$key['id'].'" id="id_'.$key['id'].'" >'.$key['id'].'</td>
+                        <td val = "'.$key['nombres'].'" id="nombres_'.$key['id'].'" >'.$key['nombres'].'</td>
+                        <td val = "'.$key['apellidos'].'" id="apellidos_'.$key['id'].'" >'.$key['apellidos'].'</td>
+                        <td val = "'.$key['correo'].'" id="correo_'.$key['id'].'" >'.$key['correo'].'</td>
+                        <td val = "'.$key['telefono'].'" id="telefono_'.$key['id'].'" >'.$key['telefono'].'</td>
                         <td> 
                             <button type="button" OnClick="editForm('.$docentes.', '.$key['id'].' )" class="btn btn-info btn-xs"> Editar </button>  
                             <button type="button" OnClick="deleteForm('.$docentes.', '.$key['id'].' )"   class="btn btn-danger btn-xs"> Eliminar </button>  

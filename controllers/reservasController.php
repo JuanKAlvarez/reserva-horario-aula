@@ -2,10 +2,13 @@
 require_once "../models/reservasModel.php";
 
 class reservasController extends reservasModel {
+
     public $fecha;
-    public $docente;
-    public $aula;
     public $horario;
+    public $docente;
+    public $materia;
+    public $grupo;
+    public $aula;
 
     public static function guardarReserva(reservasController $objReserva){
         return reservasModel::guardarReserva($objReserva);

@@ -80,7 +80,7 @@ const editForm = (parForm, parId )  =>  {
     const btnLimpiar = document.getElementById("limpiar");
 
     fillForm(parId);
-
+    
     btnGuardar.removeAttribute("Onclick");
     btnGuardar.setAttribute("Onclick", `editarRegistro('${parForm}',${parId})`);
     btnLimpiar.setAttribute("Onclick", `cancelarEditar('${parForm}')`);
@@ -93,7 +93,7 @@ const fillForm = ( parId )  =>  {
     arrInputsNameForm = getNameInputs();
     arrInputsNameForm.forEach(e => {
         row  = e + '_' + parId;
-        document.getElementById(e).value   = document.getElementById(row).innerText;
+        document.getElementById(e).value = document.getElementById(row).getAttribute("val");
     });
 }
 

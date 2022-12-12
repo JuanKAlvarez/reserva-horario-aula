@@ -34,10 +34,10 @@ switch ($method){
         foreach ($list as $key ){
             $tabla .= '
                     <tr>
-                        <td id="id_'.$key['id'].'" >'.$key['id'].'</td>
-                        <td id="numero_'.$key['id'].'" >'.$key['numero'].'</td>
-                        <td id="bloque_'.$key['id'].'" >'.$key['bloque'].'</td>
-                        <td id="descripcion_'.$key['id'].'" >'.$key['descripcion'].'</td>
+                        <td val= "'.$key['id'].'" id="id_'.$key['id'].'" >'.$key['id'].'</td>
+                        <td val= "'.$key['numero'].'" id="numero_'.$key['id'].'" >'.$key['numero'].'</td>
+                        <td val= "'.$key['bloque'].'" id="bloque_'.$key['id'].'" >'.$key['bloque'].'</td>
+                        <td val= "'.$key['descripcion'].'" id="descripcion_'.$key['id'].'" >'.$key['descripcion'].'</td>
                         <td> 
                             <button type="button" OnClick="editForm('.$aulas.', '.$key['id'].' )" class="btn btn-info btn-xs"> Editar </button>  
                             <button type="button" OnClick="deleteForm('.$aulas.', '.$key['id'].' )"   class="btn btn-danger btn-xs"> Eliminar </button>  

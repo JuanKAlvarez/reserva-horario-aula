@@ -10,12 +10,14 @@ class reservasModel extends PDODB{
     
     protected static function guardarReserva(reservasController $reserva){
         $con = new PDODB();
-        $res = $con->connect()->prepare('INSERT INTO tbl_reservas(nombres,apellidos,correo,telefono) 
-                                        Values(:nombres, :apellidos, :correo, :telefono )');
-        $res->bindParam(':nombres'  , $reserva->nombres  );
-        $res->bindParam(':apellidos', $reserva->apellidos);
-        $res->bindParam(':correo'   , $reserva->correo   );
-        $res->bindParam(':telefono' , $reserva->telefono );
+        $res = $con->connect()->prepare('INSERT INTO tbl_reservas(fecha, horario_id, docente_id, materia_id, grupo_id, aula_id) 
+                                        Values(:fecha, :horario, :docente, :materia, :grupo, :aula)');
+        $res->bindParam(':fecha'  , $reserva->fecha);
+        $res->bindParam(':horario', $reserva->horario);
+        $res->bindParam(':docente', $reserva->docente);
+        $res->bindParam(':materia', $reserva->materia);
+        $res->bindParam(':grupo'  , $reserva->grupo);
+        $res->bindParam(':aula'   , $reserva->aula);
         $res->execute();
         return $res;
 
@@ -23,7 +25,22 @@ class reservasModel extends PDODB{
 
     protected static function listarReserva(){
         $con = new PDODB();
-        $res = $con->connect()->prepare('SELECT * FROM tbl_reservas ORDER BY id DESC');
+        $esp =" ";
+        $res = $con->connect()->prepare('SELECT r.id,  
+                                                r.fecha, 
+                                                h.hora As horario, h.id as id_horario, 
+                                                CONCAT(d.nombres, :esp , d.apellidos) As docente, d.id As id_docente,
+                                                m.nombre As materia, m.id As id_materia,
+                                                g.codigo As grupo, g.id As id_grupo,
+                                                a.descripcion As aula, a.id As id_aula
+                                        FROM tbl_reservas as r 
+                                            JOIN tbl_horarios as h On r.id = h.id 
+                                            JOIN tbl_docentes as d On r.id = d.id 
+                                            JOIN tbl_materias as m On r.id = m.id 
+                                            JOIN tbl_grupos as g On r.id = g.id 
+                                            JOIN tbl_aulas as a On r.id = a.id 
+                                        ORDER BY r.id DESC');
+        $res->bindParam(':esp'  , $esp);
         $res->execute();
         $data = array();
         while ($row = $res->fetch(PDO::FETCH_ASSOC)) {
@@ -57,7 +74,4 @@ class reservasModel extends PDODB{
         return $res;
         
     }
-    
-    
-    
 }
