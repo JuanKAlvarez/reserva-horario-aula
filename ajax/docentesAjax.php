@@ -1,22 +1,19 @@
 <?php 
-
-//echo json_encode(array('success' => 1));
-//echo json_encode(array('datos' => 1));
-//echo "Hola";
-
 require_once "../controllers/docentesController.php";
 
+//Variables Globales
+$method;
+$idRegistro;
+$dataForm;
+$fields;
 $objDocente = new docentesController();
-$method     = $_POST['method'];
+
+// Obtiene las variables que fueron enviadas por POST
+getPost();
+
 
 switch ($method){
     case 'guardar':
-        $dataForm   = $_POST['result'];
-        $objDocente->nombres   = $dataForm["nombres"];
-        $objDocente->apellidos = $dataForm["apellidos"];
-        $objDocente->telefono  = $dataForm["telefono"];
-        $objDocente->correo    = $dataForm["correo"];
-        
         $res = $objDocente->guardarDocente($objDocente);
         //se puede devolver un Json para entregar notificaciones
         if ($res) {
@@ -28,35 +25,37 @@ switch ($method){
         }
         // nos quedamos en el  minuto 21:39 del video
         break;
+        
     case 'listar':
+        $arrFields = array();
+        $arrFields = explode(",", $fields);
+
         $docentes ="'docentes'";
         $list =  $objDocente->ListarDocente();
+        
         $tabla = '';
+        $tabla .= ' <tr> ';
+
         foreach ($list as $key ){
-            $tabla .= '
-                    <tr>
-                        <td val = "'.$key['id'].'" id="id_'.$key['id'].'" >'.$key['id'].'</td>
-                        <td val = "'.$key['nombres'].'" id="nombres_'.$key['id'].'" >'.$key['nombres'].'</td>
-                        <td val = "'.$key['apellidos'].'" id="apellidos_'.$key['id'].'" >'.$key['apellidos'].'</td>
-                        <td val = "'.$key['correo'].'" id="correo_'.$key['id'].'" >'.$key['correo'].'</td>
-                        <td val = "'.$key['telefono'].'" id="telefono_'.$key['id'].'" >'.$key['telefono'].'</td>
-                        <td> 
+            $tabla .= ' <td val = "'.$key['id'].'" id="id_'.$key['id'].'" >'.$key['id'].'</td> ';
+            for ($i=0; $i < count($arrFields) ; $i++) { 
+                $field = $arrFields[$i];
+                $value = $key[$field];
+                $id_   = $field.'_'.$key['id'];
+                $tabla .= '<td val = "'.$value.'" id="'.$id_.'" >'.$value.'</td>';
+            }
+            
+            $tabla .= ' <td> 
                             <button type="button" OnClick="editForm('.$docentes.', '.$key['id'].' )" class="btn btn-info btn-xs"> Editar </button>  
                             <button type="button" OnClick="deleteForm('.$docentes.', '.$key['id'].' )"   class="btn btn-danger btn-xs"> Eliminar </button>  
                         </td>
                     </tr>';
         }
+        
         echo $tabla; 
         break;
+        
     case 'editar':
-        $idRegistro   = $_POST['idRegistro'];
-        $dataForm   = $_POST['result'];
-
-        $objDocente->nombres   = $dataForm["nombres"];
-        $objDocente->apellidos = $dataForm["apellidos"];
-        $objDocente->telefono  = $dataForm["telefono"];
-        $objDocente->correo    = $dataForm["correo"];
-
         $resp =  $objDocente->editarDocente($objDocente, $idRegistro);
         if ($resp) {
             echo "El registro se edito correctamente"; 
@@ -64,8 +63,8 @@ switch ($method){
             echo "El registro NO se Edito"; 
         }
         break;
+        
     case 'eliminar':
-        $idRegistro   = $_POST['idRegistro'];
         $resp =  $objDocente->borrarDocente($idRegistro);
         if ($resp) {
             echo "El registro se elimino correctamente"; 
@@ -73,7 +72,44 @@ switch ($method){
             echo "El registro NO se Elimino"; 
         }
         break;
+        
         default:
             echo "Seleccione un Método Correcto"; 
         break;
+        
+}
+
+function getPost() {
+    global $method ;
+    global $idRegistro;
+    global $dataForm;
+    global $fields;
+
+    if (isset($_POST['method'])) {
+        $method = $_POST['method'];
+    }
+
+    if (isset($_POST['idRegistro'])) {
+        $idRegistro = $_POST['idRegistro'];
+    }
+    
+    if (isset($_POST['fields'])) {
+        $fields = $_POST['fields'];
+    }
+
+    if (isset($_POST['result'])) {
+        $dataForm = $_POST['result'];
+        fillVarOfController();
+    }
+
+}
+
+function fillVarOfController() {
+    global $objDocente;
+    global $dataForm;
+
+    $objDocente->nombres   = $dataForm["nombres"];
+    $objDocente->apellidos = $dataForm["apellidos"];
+    $objDocente->telefono  = $dataForm["telefono"];
+    $objDocente->correo    = $dataForm["correo"];
 }

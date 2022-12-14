@@ -41,7 +41,7 @@ $campos = [ "Nombres",
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
-                                <form class="form-horizontal " id="Formulario">
+                                <form class="form-horizontal " id="Formulario" onload="listTabla('docentes');">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <br>
@@ -206,3 +206,9 @@ $campos = [ "Nombres",
             </section>
             <!-- /.content Main content-->
             <!-- Scripts de pagina-->
+            <script>
+                var form = document.getElementById("Formulario");
+                if (form) {
+                    listTabla(page);
+                }
+            </script>

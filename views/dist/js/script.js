@@ -27,11 +27,13 @@ const saveForm = (parForm)  =>  {
 }
 
 const listTabla = (parTabla )  =>  {
-    
+    strFields = getNameInputs();
     $.ajax({
         type    : "POST",
         url     : ruta,
-        data    : { 'method'  : 'listar' },
+        data    : { 'method'  : 'listar',
+                    'fields'  : strFields
+                },
         success : function(resp){
             $('tbody').text('');
             $('tbody').html(resp);
@@ -90,7 +92,7 @@ const editForm = (parForm, parId )  =>  {
 
 const fillForm = ( parId )  =>  {
     let arrInputsNameForm = new Array;
-    arrInputsNameForm = getNameInputs();
+    arrInputsNameForm = getNameInputs().split(',');
     arrInputsNameForm.forEach(e => {
         row  = e + '_' + parId;
         document.getElementById(e).value = document.getElementById(row).getAttribute("val");
@@ -128,37 +130,35 @@ const cancelarEditar = (parForm) => {
 
 }
 
-const formatJson = () => {
-    const formulario = document.getElementById("Formulario");
+function formatJson() {
+    let formulario = new HTMLFormElement();
+    formulario = document.getElementById("Formulario");
     const datos = new FormData(formulario);
     const datosCompletos = Object.fromEntries(datos.entries());
     return JSON.stringify(datosCompletos);
-    formulario.getNameInputs
 }
 
-//const getName = () => {
-//    const formulario = document.getElementById("Formulario");
-//    const names = formulario.getNameInputs();
-//    
-//    const datos = new FormData(formulario);
-//    const datosCompletos = Object.fromEntries(datos.entries());
-//    return JSON.stringify(datosCompletos);
-//    
-//}
+function getNameInputs()  {
 
-const getNameInputs = () =>  {
-    
-    const formulario = document.getElementById("Formulario");
-    const datos = new FormData(formulario);
-    const datosCompletos = Object.fromEntries(datos.entries());
-    
-    idForms = new Array();
-    idForms = Object.keys(datosCompletos);
-    
-    idRegistros = new Array();
-    idRegistros = Object.keys(datosCompletos);
-    
-    return idRegistros;
+    // Obtener todos los elementos del formulario
+    var form = document.getElementById('Formulario');
+    var elements = form.getElementsByTagName('input');
+
+    // Crear una matriz para almacenar los nombres de los elementos
+    var names = [];
+
+    // Recorrer todos los elementos del formulario
+    for (var i = 0; i < elements.length; i++) {
+    // Verificar si el elemento tiene un atributo 'name'
+        if (elements[i].hasAttribute('name')) {
+            // Añadir el valor del atributo 'name' a la matriz
+            names.push(elements[i].getAttribute('name'));
+        }
+    }
+
+    // Convertir la matriz a una cadena de texto separada por comas
+    var namesString = names.join(',');
+    return namesString;
 }
 
 const obtenerRutaAjax = (parForm) => {
@@ -206,6 +206,5 @@ const ch = (hijo) => {
 
     ruta = obtenerRutaAjax(hijo);
     page = hijo;
-    listTabla(page);
-    
+
 }
