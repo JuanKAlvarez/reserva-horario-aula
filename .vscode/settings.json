@@ -6,6 +6,7 @@
         "Conexion",
         "descripcion",
         "doner",
+        "duracion",
         "PDODB",
         "telefono"
     ]
