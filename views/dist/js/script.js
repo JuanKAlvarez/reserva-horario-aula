@@ -131,7 +131,6 @@ const cancelarEditar = (parForm) => {
 }
 
 function formatJson() {
-    let formulario = new HTMLFormElement();
     formulario = document.getElementById("Formulario");
     const datos = new FormData(formulario);
     const datosCompletos = Object.fromEntries(datos.entries());

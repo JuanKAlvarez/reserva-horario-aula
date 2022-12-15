@@ -25,7 +25,7 @@ switch ($method){
         }
         // nos quedamos en el  minuto 21:39 del video
         break;
-        
+
     case 'listar':
         $arrFields = array();
         $arrFields = explode(",", $fields);
@@ -54,7 +54,7 @@ switch ($method){
         
         echo $tabla; 
         break;
-        
+
     case 'editar':
         $resp =  $objDocente->editarDocente($objDocente, $idRegistro);
         if ($resp) {
@@ -63,7 +63,7 @@ switch ($method){
             echo "El registro NO se Edito"; 
         }
         break;
-        
+
     case 'eliminar':
         $resp =  $objDocente->borrarDocente($idRegistro);
         if ($resp) {
@@ -72,11 +72,11 @@ switch ($method){
             echo "El registro NO se Elimino"; 
         }
         break;
-        
+
         default:
             echo "Seleccione un Método Correcto"; 
         break;
-        
+
 }
 
 function getPost() {
@@ -99,12 +99,12 @@ function getPost() {
 
     if (isset($_POST['result'])) {
         $dataForm = $_POST['result'];
-        fillVarOfController();
+        fillControllerVariables();
     }
 
 }
 
-function fillVarOfController() {
+function fillControllerVariables() {
     global $objDocente;
     global $dataForm;
 
